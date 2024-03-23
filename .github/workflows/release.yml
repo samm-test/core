@@ -29,11 +29,6 @@ jobs:
       - run: tar -cvzf samm.tar.gz images model texts
       - name: Generate Excel spreadsheet from the model
         uses: owaspsamm/toolbox-spreadsheet@main
-      - name: Build Changelog
-        id: github_release
-        uses: mikepenz/release-changelog-builder-action@v3
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: ncipollo/release-action@v1
         with:
           artifacts: samm.tar.gz, SAMM_spreadsheet.xlsx
